@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.29009.5
+VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Netch", "Netch\Netch.csproj", "{4B041B91-5790-4571-8C58-C63FFE4BC9F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Netch", "Netch\Netch.csproj", "{1964F33C-D5DF-41D9-81DA-D7706EBF86DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{63CE4038-6474-4D60-9BE8-51C56EC2AA6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +13,19 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4B041B91-5790-4571-8C58-C63FFE4BC9F8}.Debug|x64.ActiveCfg = Debug|x64
-		{4B041B91-5790-4571-8C58-C63FFE4BC9F8}.Debug|x64.Build.0 = Debug|x64
-		{4B041B91-5790-4571-8C58-C63FFE4BC9F8}.Release|x64.ActiveCfg = Release|x64
-		{4B041B91-5790-4571-8C58-C63FFE4BC9F8}.Release|x64.Build.0 = Release|x64
+		{1964F33C-D5DF-41D9-81DA-D7706EBF86DA}.Debug|x64.ActiveCfg = Debug|x64
+		{1964F33C-D5DF-41D9-81DA-D7706EBF86DA}.Debug|x64.Build.0 = Debug|x64
+		{1964F33C-D5DF-41D9-81DA-D7706EBF86DA}.Release|x64.ActiveCfg = Release|x64
+		{1964F33C-D5DF-41D9-81DA-D7706EBF86DA}.Release|x64.Build.0 = Release|x64
+		{63CE4038-6474-4D60-9BE8-51C56EC2AA6D}.Debug|x64.ActiveCfg = Debug|x64
+		{63CE4038-6474-4D60-9BE8-51C56EC2AA6D}.Debug|x64.Build.0 = Debug|x64
+		{63CE4038-6474-4D60-9BE8-51C56EC2AA6D}.Release|x64.ActiveCfg = Release|x64
+		{63CE4038-6474-4D60-9BE8-51C56EC2AA6D}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {6EC9B043-ACA5-4BB9-96DB-493A2EF6E43F}
+		SolutionGuid = {103BE691-53CF-4299-9325-F8CB31182D72}
 	EndGlobalSection
 EndGlobal

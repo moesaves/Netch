@@ -1,21 +1,17 @@
-﻿using Netch.Controllers;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle(UpdateChecker.Name)]
+[assembly: AssemblyTitle("Netch")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct(UpdateChecker.Name)]
-[assembly: AssemblyCopyright(UpdateChecker.Copyright)]
+[assembly: AssemblyProduct("Netch")]
+[assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-#if NET
-[assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
-#endif
 
 // 将 ComVisible 设置为 false 会使此程序集中的类型
 //对 COM 组件不可见。如果需要从 COM 访问此程序集中的类型
@@ -23,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("4b041b91-5790-4571-8c58-c63ffe4bc9f8")]
+[assembly: Guid("1964f33c-d5df-41d9-81da-d7706ebf86da")]
 
 // 程序集的版本信息由下列四个值组成: 
 //
@@ -35,5 +31,5 @@ using System.Runtime.InteropServices;
 //可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值
 //通过使用 "*"，如下所示:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion(UpdateChecker.AssemblyVersion)]
-// [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

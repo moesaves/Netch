@@ -1,5 +1,3 @@
 /.vs
-/.vscode
-/.idea
-/release
-/DataCache
+/packages
+/TestResults
