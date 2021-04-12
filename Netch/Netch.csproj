@@ -71,8 +71,13 @@
     <Compile Include="Models\Mode\Mode.cs" />
     <Compile Include="Models\Mode\ModeType.cs" />
     <Compile Include="Models\Mode\ProcessMode\ProcessMode.cs" />
+    <Compile Include="Models\Mode\TunMode\TunMode.cs" />
+    <Compile Include="Models\Mode\WebMode\WebMode.cs" />
     <Compile Include="Models\Servers\Server.cs" />
     <Compile Include="Models\Servers\ServerType.cs" />
+    <Compile Include="Models\Servers\ShadowsocksR\Global.cs" />
+    <Compile Include="Models\Servers\ShadowsocksR\ShadowsocksR.cs" />
+    <Compile Include="Models\Servers\Shadowsocks\Global.cs" />
     <Compile Include="Models\Servers\Shadowsocks\Shadowsocks.cs" />
     <Compile Include="Models\Servers\Socks\Socks.cs" />
     <Compile Include="NativeMethods.cs" />
@@ -80,6 +85,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\Guard.cs" />
     <Compile Include="Tools\Logger.cs" />
+    <Compile Include="Utils\Base64.cs" />
     <Compile Include="Utils\DNS.cs" />
     <Compile Include="Utils\HTTP.cs" />
     <Compile Include="Utils\Netfilter.cs" />
@@ -115,7 +121,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\Servers\" />
-    <Folder Include="Models\Servers\ShadowsocksR\" />
     <Folder Include="Models\Servers\Trojan\" />
     <Folder Include="Models\Servers\VLess\" />
     <Folder Include="Models\Servers\VMess\" />

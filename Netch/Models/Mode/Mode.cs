@@ -14,6 +14,6 @@
         [Newtonsoft.Json.JsonProperty("remark")]
         public string Remark;
 
-        public override string ToString() => $"[{((int)this.Type)}] {this.Remark}";
+        public override string ToString() => $"[{this.Type}] {this.Remark}";
     }
 }
