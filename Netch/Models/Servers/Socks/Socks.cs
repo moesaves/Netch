@@ -25,11 +25,11 @@ namespace Netch.Models.Servers.Socks
         /// <summary>
         ///     解析链接
         /// </summary>
-        /// <param name="text">链接</param>
+        /// <param name="link">链接</param>
         /// <returns>是否成功</returns>
-        public bool ParseLink(string text)
+        public bool ParseLink(string link)
         {
-            var list = text
+            var list = link
                 .Replace("tg://socks?", "")
                 .Replace("https://t.me/socks?", "")
                 .Split('&');

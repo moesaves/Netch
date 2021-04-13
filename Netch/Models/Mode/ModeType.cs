@@ -15,6 +15,11 @@
         /// <summary>
         ///     网页代理
         /// </summary>
-        WebMode
+        WebMode,
+
+        /// <summary>
+        ///     代理转发
+        /// </summary>
+        WmpMode
     }
 }

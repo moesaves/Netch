@@ -58,6 +58,11 @@
     <Compile Include="Controllers\Others\DNSController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\NFController.cs" />
+    <Compile Include="Controllers\Servers\SRController.cs" />
+    <Compile Include="Controllers\Servers\SSController.cs" />
+    <Compile Include="Controllers\Servers\TRController.cs" />
+    <Compile Include="Controllers\Servers\VLController.cs" />
+    <Compile Include="Controllers\Servers\VMController.cs" />
     <Compile Include="Controllers\TUNController.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -66,6 +71,13 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
+    <Compile Include="Models\Config\AioDNS.cs" />
+    <Compile Include="Models\Config\Config.cs" />
+    <Compile Include="Models\Config\Generic.cs" />
+    <Compile Include="Models\Config\Ports.cs" />
+    <Compile Include="Models\Config\Subscription.cs" />
+    <Compile Include="Models\Config\V2Ray.cs" />
+    <Compile Include="Models\Config\WinTUN.cs" />
     <Compile Include="Models\GitHub\Asset.cs" />
     <Compile Include="Models\GitHub\Release.cs" />
     <Compile Include="Models\Mode\Mode.cs" />
@@ -73,6 +85,7 @@
     <Compile Include="Models\Mode\ProcessMode\ProcessMode.cs" />
     <Compile Include="Models\Mode\TunMode\TunMode.cs" />
     <Compile Include="Models\Mode\WebMode\WebMode.cs" />
+    <Compile Include="Models\Mode\WmpMode\WmpMode.cs" />
     <Compile Include="Models\Servers\Server.cs" />
     <Compile Include="Models\Servers\ServerType.cs" />
     <Compile Include="Models\Servers\ShadowsocksR\Global.cs" />
@@ -120,7 +133,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\Servers\" />
     <Folder Include="Models\Servers\Trojan\" />
     <Folder Include="Models\Servers\VLess\" />
     <Folder Include="Models\Servers\VMess\" />

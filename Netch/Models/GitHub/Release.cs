@@ -7,19 +7,34 @@ namespace Netch.Models.GitHub
     /// </summary>
     public class Release
     {
+        /// <summary>
+        ///     html_url
+        /// </summary>
         [Newtonsoft.Json.JsonProperty("html_url")]
         public string URL;
 
+        /// <summary>
+        ///     tag_name
+        /// </summary>
         [Newtonsoft.Json.JsonProperty("tag_name")]
         public string VerCode;
 
+        /// <summary>
+        ///     draft
+        /// </summary>
         [Newtonsoft.Json.JsonProperty("draft")]
         public bool Draft;
 
+        /// <summary>
+        ///     prerelease
+        /// </summary>
         [Newtonsoft.Json.JsonProperty("prerelease")]
-        public bool Preview;
+        public bool Unstable;
 
+        /// <summary>
+        ///     assets
+        /// </summary>
         [Newtonsoft.Json.JsonProperty("assets")]
-        public List<Asset> Assets;
+        public List<Asset> Files;
     }
 }
