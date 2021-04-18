@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Netch.Models.Servers
+namespace Netch.Models.Server
 {
     public class Server
     {

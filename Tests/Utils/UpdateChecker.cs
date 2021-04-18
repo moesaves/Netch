@@ -15,5 +15,11 @@ namespace Tests.Utils
                 Console.WriteLine(list[i].VerCode);
             }
         }
+
+        [TestMethod]
+        public void TestHasUpdate()
+        {
+            Console.WriteLine(Netch.Utils.UpdateChecker.HasUpdate());
+        }
     }
 }

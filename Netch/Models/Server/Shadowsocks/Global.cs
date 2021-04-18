@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Netch.Models.Servers.Shadowsocks
+namespace Netch.Models.Server.Shadowsocks
 {
     public static class Global
     {

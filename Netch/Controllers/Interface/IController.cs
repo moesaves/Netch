@@ -1,8 +1,11 @@
-﻿namespace Netch.Controllers.Interface
+﻿using Netch.Models.Server;
+
+namespace Netch.Controllers.Interface
 {
     public interface IController
     {
-        bool Create(Models.Servers.Server s, Models.Mode.Mode m);
+        bool Create(Server s, Models.Mode.Mode m);
+
         bool Delete();
     }
 }

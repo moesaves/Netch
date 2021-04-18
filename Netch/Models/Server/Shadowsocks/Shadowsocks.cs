@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace Netch.Models.Servers.Shadowsocks
+namespace Netch.Models.Server.Shadowsocks
 {
     public class Shadowsocks : Server
     {

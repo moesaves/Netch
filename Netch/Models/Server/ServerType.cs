@@ -1,4 +1,4 @@
-﻿namespace Netch.Models.Servers
+﻿namespace Netch.Models.Server
 {
     public enum ServerType : int
     {

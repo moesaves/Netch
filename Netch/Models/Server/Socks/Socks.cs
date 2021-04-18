@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Netch.Models.Servers.Socks
+namespace Netch.Models.Server.Socks
 {
     public class Socks : Server
     {

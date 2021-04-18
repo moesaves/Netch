@@ -86,13 +86,13 @@
     <Compile Include="Models\Mode\TunMode\TunMode.cs" />
     <Compile Include="Models\Mode\WebMode\WebMode.cs" />
     <Compile Include="Models\Mode\WmpMode\WmpMode.cs" />
-    <Compile Include="Models\Servers\Server.cs" />
-    <Compile Include="Models\Servers\ServerType.cs" />
-    <Compile Include="Models\Servers\ShadowsocksR\Global.cs" />
-    <Compile Include="Models\Servers\ShadowsocksR\ShadowsocksR.cs" />
-    <Compile Include="Models\Servers\Shadowsocks\Global.cs" />
-    <Compile Include="Models\Servers\Shadowsocks\Shadowsocks.cs" />
-    <Compile Include="Models\Servers\Socks\Socks.cs" />
+    <Compile Include="Models\Server\Server.cs" />
+    <Compile Include="Models\Server\ServerType.cs" />
+    <Compile Include="Models\Server\ShadowsocksR\Global.cs" />
+    <Compile Include="Models\Server\ShadowsocksR\ShadowsocksR.cs" />
+    <Compile Include="Models\Server\Shadowsocks\Global.cs" />
+    <Compile Include="Models\Server\Shadowsocks\Shadowsocks.cs" />
+    <Compile Include="Models\Server\Socks\Socks.cs" />
     <Compile Include="NativeMethods.cs" />
     <Compile Include="Netch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,9 +133,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\Servers\Trojan\" />
-    <Folder Include="Models\Servers\VLess\" />
-    <Folder Include="Models\Servers\VMess\" />
+    <Folder Include="Models\Server\Trojan\" />
+    <Folder Include="Models\Server\VLess\" />
+    <Folder Include="Models\Server\VMess\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

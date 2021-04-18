@@ -31,6 +31,24 @@ namespace Netch.Utils
                 return false;
             }
 
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].Draft)
+                {
+                    continue;
+                }
+
+                if (list[i].Unstable)
+                {
+                    continue;
+                }
+
+                if (!list[i].VerCode.Equals(Global.VerCode))
+                {
+                    return true;
+                }
+            }
+
             return false;
         }
     }
