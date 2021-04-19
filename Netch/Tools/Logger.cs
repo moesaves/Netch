@@ -24,11 +24,14 @@ namespace Netch.Tools
         private void WriteLine(string name, string text)
         {
             var method = new StackTrace().GetFrame(2).GetMethod();
+            var content = $"[{DateTime.Now}][{method.ReflectedType.Name}.{method.Name}][{name}] {text}";
 
             lock (mutex)
             {
-                File.AppendAllText(this.SavePath, $"[{DateTime.Now}][{method.ReflectedType.Name}.{method.Name}][{name}] {text}\n");
+                File.AppendAllText(this.SavePath, $"{content}\n");
             }
+
+            Console.WriteLine($"[Netch]{content}");
         }
 
         /// <summary>

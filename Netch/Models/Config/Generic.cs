@@ -1,22 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Netch.Models.Config
+﻿namespace Netch.Models.Config
 {
     public class Generic
     {
         /// <summary>
-        ///     将域名转换为 IP 地址
+        ///     检查 Unstable 更新
         /// </summary>
-        public bool ResolveHostname = true;
+        public bool Unstable = false;
 
         /// <summary>
         ///     使用 ICMP 测试延迟
         /// </summary>
-        public bool ICMPing = false;
+        public bool ICMPing = true;
+
+        /// <summary>
+        ///     将域名转换为 IP 地址
+        /// </summary>
+        public bool ResolveHostname = true;
 
         /// <summary>
         ///     STUN

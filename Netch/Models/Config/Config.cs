@@ -1,13 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Netch.Models.Config
 {
     public class Config
     {
+        /// <summary>
+        ///     配置 版本
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("verCode")]
+        public int VerCode = 1;
+
         /// <summary>
         ///     端口 配置
         /// </summary>
@@ -31,6 +33,12 @@ namespace Netch.Models.Config
         /// </summary>
         [Newtonsoft.Json.JsonProperty("aiodns")]
         public AioDNS AioDNS = new AioDNS();
+
+        /// <summary>
+        ///     V2Ray 配置
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("v2ray")]
+        public V2Ray V2Ray = new V2Ray();
 
         /// <summary>
         ///     订阅链接

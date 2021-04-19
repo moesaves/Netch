@@ -55,15 +55,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Interface\IController.cs" />
+    <Compile Include="Controllers\Mode\ShareController.cs" />
+    <Compile Include="Controllers\Mode\WebController.cs" />
+    <Compile Include="Controllers\Mode\WmpController.cs" />
     <Compile Include="Controllers\Others\DNSController.cs" />
     <Compile Include="Controllers\MainController.cs" />
-    <Compile Include="Controllers\NFController.cs" />
-    <Compile Include="Controllers\Servers\SRController.cs" />
-    <Compile Include="Controllers\Servers\SSController.cs" />
-    <Compile Include="Controllers\Servers\TRController.cs" />
-    <Compile Include="Controllers\Servers\VLController.cs" />
-    <Compile Include="Controllers\Servers\VMController.cs" />
-    <Compile Include="Controllers\TUNController.cs" />
+    <Compile Include="Controllers\Mode\ProcessController.cs" />
+    <Compile Include="Controllers\Server\SRController.cs" />
+    <Compile Include="Controllers\Server\SSController.cs" />
+    <Compile Include="Controllers\Server\TRController.cs" />
+    <Compile Include="Controllers\Server\VLController.cs" />
+    <Compile Include="Controllers\Server\VMController.cs" />
+    <Compile Include="Controllers\Mode\TunController.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +86,7 @@
     <Compile Include="Models\Mode\Mode.cs" />
     <Compile Include="Models\Mode\ModeType.cs" />
     <Compile Include="Models\Mode\ProcessMode\ProcessMode.cs" />
+    <Compile Include="Models\Mode\ShareMode\ShareMode.cs" />
     <Compile Include="Models\Mode\TunMode\TunMode.cs" />
     <Compile Include="Models\Mode\WebMode\WebMode.cs" />
     <Compile Include="Models\Mode\WmpMode\WmpMode.cs" />
@@ -93,16 +97,19 @@
     <Compile Include="Models\Server\Shadowsocks\Global.cs" />
     <Compile Include="Models\Server\Shadowsocks\Shadowsocks.cs" />
     <Compile Include="Models\Server\Socks\Socks.cs" />
+    <Compile Include="Models\Server\Trojan\Trojan.cs" />
     <Compile Include="NativeMethods.cs" />
     <Compile Include="Netch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\Guard.cs" />
     <Compile Include="Tools\Logger.cs" />
     <Compile Include="Utils\Base64.cs" />
+    <Compile Include="Utils\Config.cs" />
     <Compile Include="Utils\DNS.cs" />
     <Compile Include="Utils\HTTP.cs" />
     <Compile Include="Utils\Netfilter.cs" />
     <Compile Include="Utils\FileHelper.cs" />
+    <Compile Include="Utils\Ping.cs" />
     <Compile Include="Utils\UpdateChecker.cs" />
     <Compile Include="Utils\WinTUN.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">
@@ -133,7 +140,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\Server\Trojan\" />
     <Folder Include="Models\Server\VLess\" />
     <Folder Include="Models\Server\VMess\" />
   </ItemGroup>

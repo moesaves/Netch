@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Netch.Models.Mode.WmpMode
+﻿namespace Netch.Models.Mode.WmpMode
 {
     public class WmpMode : Mode
     {
@@ -14,7 +8,7 @@ namespace Netch.Models.Mode.WmpMode
         }
 
         /// <summary>
-        ///     监听地址
+        ///     监听地址（为空则监听所有 IPv4 + IPv6 地址）
         /// </summary>
         public string ListenAddr;
 

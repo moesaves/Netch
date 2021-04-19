@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Netch.Models.Config
+﻿namespace Netch.Models.Config
 {
     public class V2Ray
     {
@@ -14,7 +8,7 @@ namespace Netch.Models.Config
         public bool FullCone = false;
 
         /// <summary>
-        ///     SSL/TLS 跳过证书认证
+        ///     跳过证书认证
         /// </summary>
         public bool Insecure = false;
 
