@@ -10,6 +10,12 @@ namespace Netch.Models.Mode.WebMode
         }
 
         /// <summary>
+        ///     设置系统代理
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("setSystemProxy")]
+        public bool SetSystemProxy;
+
+        /// <summary>
         ///     绕过域名后缀
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bypassDomainSuffix")]

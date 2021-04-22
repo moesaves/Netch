@@ -11,39 +11,57 @@ namespace Netch.Models.Config
         public int VerCode = 1;
 
         /// <summary>
-        ///     端口 配置
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("ports")]
-        public Ports Ports = new Ports();
-
-        /// <summary>
         ///     通用 配置
         /// </summary>
         [Newtonsoft.Json.JsonProperty("generic")]
-        public Generic Generic = new Generic();
+        public Generic Generic = new();
+
+        /// <summary>
+        ///     端口 配置
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("ports")]
+        public Ports Ports = new();
+
+        /// <summary>
+        ///     ProcessMode 配置
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("processmode")]
+        public ProcessMode ProcessMode = new();
+
+        /// <summary>
+        ///     ShareMode 配置
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("sharemode")]
+        public ShareMode ShareMode = new();
 
         /// <summary>
         ///     WinTUN 配置
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("wintun")]
-        public WinTUN WinTun = new WinTUN();
+        [Newtonsoft.Json.JsonProperty("tunmode")]
+        public TunMode TunMode = new();
 
         /// <summary>
         ///     AioDNS 配置
         /// </summary>
         [Newtonsoft.Json.JsonProperty("aiodns")]
-        public AioDNS AioDNS = new AioDNS();
+        public AioDNS AioDNS = new();
 
         /// <summary>
         ///     V2Ray 配置
         /// </summary>
         [Newtonsoft.Json.JsonProperty("v2ray")]
-        public V2Ray V2Ray = new V2Ray();
+        public V2Ray V2Ray = new();
+
+        /// <summary>
+        ///     STUN 配置
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("stun")]
+        public STUN STUN = new();
 
         /// <summary>
         ///     订阅链接
         /// </summary>
         [Newtonsoft.Json.JsonProperty("subscriptions")]
-        public List<Subscription> Subscriptions = new List<Subscription>();
+        public List<Subscription> Subscriptions = new();
     }
 }

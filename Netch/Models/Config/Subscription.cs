@@ -17,7 +17,7 @@
         /// <summary>
         ///     链接
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("link")]
+        [Newtonsoft.Json.JsonProperty("address")]
         public string Link;
     }
 }

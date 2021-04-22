@@ -20,7 +20,7 @@
         /// <summary>
         ///     KCP 设定
         /// </summary>
-        public V2RayKCP KCP = new V2RayKCP();
+        public V2RayKCP KCP = new();
     }
 
     public class V2RayKCP
@@ -28,7 +28,7 @@
         /// <summary>
         ///     MTU
         /// </summary>
-        public int MTU = 1350;
+        public int MTU = 1450;
 
         /// <summary>
         ///     TTI

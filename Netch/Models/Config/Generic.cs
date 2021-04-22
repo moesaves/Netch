@@ -11,15 +11,5 @@
         ///     使用 ICMP 测试延迟
         /// </summary>
         public bool ICMPing = true;
-
-        /// <summary>
-        ///     将域名转换为 IP 地址
-        /// </summary>
-        public bool ResolveHostname = true;
-
-        /// <summary>
-        ///     STUN
-        /// </summary>
-        public string STUN = "stun.qq.com";
     }
 }

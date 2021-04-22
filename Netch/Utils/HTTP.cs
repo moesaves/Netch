@@ -9,7 +9,7 @@ namespace Netch.Utils
         /// <summary>
         ///     User Agent
         /// </summary>
-        public static readonly string DefaultUA = $"{UpdateChecker.Repo}/{Global.VerCode}";
+        public static readonly string DefaultUA = $"Netch/{Global.VerCode}";
 
         /// <summary>
         ///     创建请求

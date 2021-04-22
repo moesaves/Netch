@@ -8,6 +8,12 @@ namespace Netch.Models.GitHub
     public class Release
     {
         /// <summary>
+        ///     id
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("id")]
+        public int ID;
+
+        /// <summary>
         ///     html_url
         /// </summary>
         [Newtonsoft.Json.JsonProperty("html_url")]
