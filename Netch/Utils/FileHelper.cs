@@ -28,12 +28,6 @@ namespace Netch.Utils
         /// <param name="oPath">文件路径</param>
         /// <param name="nPath">文件路径</param>
         /// <returns></returns>
-        public static bool Equals(string oPath, string nPath)
-        {
-            byte[] ohash = Checksum(oPath);
-            byte[] nhash = Checksum(nPath);
-
-            return ohash.SequenceEqual(nhash);
-        }
+        public static bool Equals(string oPath, string nPath) => Checksum(oPath).SequenceEqual(Checksum(nPath));
     }
 }

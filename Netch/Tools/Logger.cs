@@ -7,14 +7,9 @@ namespace Netch.Tools
     public class Logger
     {
         /// <summary>
-        ///     保存路径
-        /// </summary>
-        public string SavePath;
-
-        /// <summary>
         ///     互斥锁
         /// </summary>
-        private object mutex = new object();
+        private object mutex = new();
 
         /// <summary>
         ///     写入日志
@@ -33,6 +28,11 @@ namespace Netch.Tools
 
             Console.WriteLine($"[Netch]{content}");
         }
+
+        /// <summary>
+        ///     保存路径
+        /// </summary>
+        public string SavePath;
 
         /// <summary>
         ///     调试
@@ -77,6 +77,8 @@ namespace Netch.Tools
         public void Fatal(string text)
         {
             this.WriteLine("FATAL", text);
+
+            Environment.Exit(1);
         }
     }
 }

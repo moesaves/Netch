@@ -28,9 +28,12 @@ namespace Netch.Utils
                     continue;
                 }
 
-                if (list[i].Unstable)
+                if (Global.Config.Generic.Unstable)
                 {
-                    continue;
+                    if (list[i].Unstable)
+                    {
+                        continue;
+                    }
                 }
 
                 if (list[i].VerCode.Equals(Global.VerCode))

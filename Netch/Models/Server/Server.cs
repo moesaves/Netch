@@ -17,12 +17,6 @@ namespace Netch.Models.Server
         public string Remark;
 
         /// <summary>
-        ///     群组
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("group")]
-        public string Group;
-
-        /// <summary>
         ///     地址
         /// </summary>
         [Newtonsoft.Json.JsonProperty("host")]
@@ -40,33 +34,28 @@ namespace Netch.Models.Server
         [Newtonsoft.Json.JsonIgnore]
         public int Ping = -1;
 
+        /// <summary>
+        ///     测试延迟
+        /// </summary>
+        /// <returns></returns>
+        public void TestPing() => this.Ping = Utils.Ping.Fetch(this);
+
+        /// <summary>
+        ///     获取备注
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
-            var name = "";
-            switch (this.Type)
+            string name = this.Type switch
             {
-                case ServerType.Socks:
-                    name = "S5";
-                    break;
-                case ServerType.Shadowsocks:
-                    name = "SS";
-                    break;
-                case ServerType.ShadowsocksR:
-                    name = "SR";
-                    break;
-                case ServerType.Trojan:
-                    name = "TR";
-                    break;
-                case ServerType.VLess:
-                    name = "VL";
-                    break;
-                case ServerType.VMess:
-                    name = "VM";
-                    break;
-                default:
-                    name = "UN";
-                    break;
-            }
+                ServerType.Socks => "S5",
+                ServerType.Shadowsocks => "SS",
+                ServerType.ShadowsocksR => "SR",
+                ServerType.Trojan => "TR",
+                ServerType.VLess => "VL",
+                ServerType.VMess => "VM",
+                _ => "UN",
+            };
 
             return String.Format("[{0}] {1}", name, String.IsNullOrEmpty(this.Remark) ? $"{this.Host}:{this.Port}" : this.Remark);
         }

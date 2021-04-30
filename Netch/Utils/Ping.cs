@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Diagnostics;
 using System.Net;
-using System.Net.NetworkInformation;
 using System.Net.Sockets;
 
 namespace Netch.Utils
@@ -39,13 +38,13 @@ namespace Netch.Utils
         {
             using (var client = new System.Net.NetworkInformation.Ping())
             {
-                var response = client.Send(addr);
-                if (response.Status == IPStatus.Success)
+                var tk = client.SendPingAsync(addr);
+                if (!tk.Wait(1000))
                 {
-                    return Convert.ToInt32(response.RoundtripTime);
+                    return 999;
                 }
 
-                return 999;
+                return Convert.ToInt32(tk.Result.RoundtripTime);
             }
         }
 

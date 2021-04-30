@@ -7,7 +7,7 @@ namespace Netch.Utils
 {
     public static class Netfilter
     {
-        public static class NativeMethods
+        public static class Methods
         {
             public enum NF_STATUS : int
             {
@@ -27,7 +27,7 @@ namespace Netch.Utils
 
         public static readonly string dName = "netfilter2";
         public static readonly string oPath = Path.Combine(Environment.SystemDirectory, "drivers\\netfilter2.sys");
-        public static readonly string nPath = Path.Combine(Application.StartupPath, "bin\\netfilter2.sys");
+        public static readonly string nPath = Path.Combine(Application.StartupPath, "Bin\\netfilter2.sys");
 
         /// <summary>
         ///     注册 Netfilter 驱动
@@ -43,8 +43,8 @@ namespace Netch.Utils
                 }
 
                 File.Copy(nPath, oPath);
-                var status = NativeMethods.nf_registerDriver(dName);
-                if (status != NativeMethods.NF_STATUS.NF_STATUS_SUCCESS)
+                var status = Methods.nf_registerDriver(dName);
+                if (status != Methods.NF_STATUS.NF_STATUS_SUCCESS)
                 {
                     Global.Logger.Error($"注册 Netfilter 驱动失败：{status}");
                     return false;
@@ -89,8 +89,8 @@ namespace Netch.Utils
             {
                 if (File.Exists(oPath))
                 {
-                    var status = NativeMethods.nf_unRegisterDriver(dName);
-                    if (status != NativeMethods.NF_STATUS.NF_STATUS_SUCCESS)
+                    var status = Methods.nf_unRegisterDriver(dName);
+                    if (status != Methods.NF_STATUS.NF_STATUS_SUCCESS)
                     {
                         Global.Logger.Error($"取消注册 Netfilter 驱动失败：{status}");
                         return false;

@@ -70,8 +70,8 @@ namespace Netch.Utils
             {
                 using (var client = new Socket(SocketType.Stream, ProtocolType.Tcp))
                 {
-                    var task = client.ConnectAsync(new IPEndPoint(IPAddress.Parse("114.114.114.114"), 80));
-                    if (!task.Wait(1000))
+                    var tk = client.ConnectAsync(new IPEndPoint(IPAddress.Parse("114.114.114.114"), 53));
+                    if (!tk.Wait(1000))
                     {
                         return IPAddress.Any;
                     }
@@ -82,6 +82,7 @@ namespace Netch.Utils
             catch (Exception e)
             {
                 Global.Logger.Warning(e.ToString());
+
                 return IPAddress.Any;
             }
         }
