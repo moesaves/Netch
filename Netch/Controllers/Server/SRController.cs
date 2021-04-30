@@ -1,15 +1,54 @@
-﻿namespace Netch.Controllers.Server
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Text;
+using System.Windows.Forms;
+
+namespace Netch.Controllers.Server
 {
     public class SRController : Interface.IController
     {
+        private Tools.Guard Guard = new()
+        {
+            StartInfo = new ProcessStartInfo()
+            {
+                FileName = Path.Combine(Application.StartupPath, "Bin\\Shadowsocks.exe"),
+                WorkingDirectory = Path.Combine(Application.StartupPath, "Bin"),
+                CreateNoWindow = true,
+                UseShellExecute = false,
+                WindowStyle = ProcessWindowStyle.Hidden
+            },
+            JudgmentStarted = new List<string>()
+            {
+                "listening at"
+            },
+            JudgmentStopped = new List<string>()
+            {
+                "usage",
+                "invalid"
+            },
+            AutoRestart = true
+        };
+
         public bool Create(Models.Server.Server s, Models.Mode.Mode m)
         {
-            throw new System.NotImplementedException();
+            var node = s as Models.Server.ShadowsocksR.ShadowsocksR;
+
+            var sb = new StringBuilder();
+            sb.Append($"-l {Global.Config.Ports.Socks} -s {node.Resolve()} -p {node.Port} -k '{node.Passwd}' -O {node.Prot} -o {node.OBFS} -t 30 -u");
+            if (!String.IsNullOrEmpty(node.ProtParam)) sb.Append($" -G '{node.ProtParam}'");
+            if (!String.IsNullOrEmpty(node.OBFSParam)) sb.Append($" -g '{node.OBFSParam}'");
+
+            this.Guard.StartInfo.Arguments = sb.ToString();
+            return this.Guard.Create();
         }
 
         public bool Delete()
         {
-            throw new System.NotImplementedException();
+            this.Guard.Delete();
+
+            return true;
         }
     }
 }

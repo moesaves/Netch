@@ -15,6 +15,11 @@
         /// <summary>
         ///     网卡代理
         /// </summary>
+        TapMode,
+
+        /// <summary>
+        ///     网卡代理
+        /// </summary>
         TunMode,
 
         /// <summary>

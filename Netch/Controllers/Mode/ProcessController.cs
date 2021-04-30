@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -76,12 +75,10 @@ namespace Netch.Controllers.Mode
                 case Models.Server.ServerType.Socks:
                     {
                         var node = s as Models.Server.Socks.Socks;
-                        var addr = (Utils.DNS.Fetch(node.Host) != IPAddress.Any) ? Utils.DNS.Fetch(node.Host).ToString() : node.Host;
-
                         Methods.aio_dial(NameList.TYPE_TCPTYPE, "Socks");
                         Methods.aio_dial(NameList.TYPE_UDPTYPE, "Socks");
-                        Methods.aio_dial(NameList.TYPE_TCPHOST, $"{addr}:{node.Port}");
-                        Methods.aio_dial(NameList.TYPE_UDPHOST, $"{addr}:{node.Port}");
+                        Methods.aio_dial(NameList.TYPE_TCPHOST, $"{node.Resolve()}:{node.Port}");
+                        Methods.aio_dial(NameList.TYPE_UDPHOST, $"{node.Resolve()}:{node.Port}");
 
                         if (!String.IsNullOrEmpty(node.Username))
                         {
@@ -99,14 +96,12 @@ namespace Netch.Controllers.Mode
                 case Models.Server.ServerType.Shadowsocks:
                     {
                         var node = s as Models.Server.Shadowsocks.Shadowsocks;
-                        var addr = (Utils.DNS.Fetch(node.Host) != IPAddress.Any) ? Utils.DNS.Fetch(node.Host).ToString() : node.Host;
-
                         if (String.IsNullOrEmpty(node.OBFS))
                         {
                             Methods.aio_dial(NameList.TYPE_TCPTYPE, "Shadowsocks");
                             Methods.aio_dial(NameList.TYPE_UDPTYPE, "Shadowsocks");
-                            Methods.aio_dial(NameList.TYPE_TCPHOST, $"{addr}:{node.Port}");
-                            Methods.aio_dial(NameList.TYPE_UDPHOST, $"{addr}:{node.Port}");
+                            Methods.aio_dial(NameList.TYPE_TCPHOST, $"{node.Resolve()}:{node.Port}");
+                            Methods.aio_dial(NameList.TYPE_UDPHOST, $"{node.Resolve()}:{node.Port}");
                             Methods.aio_dial(NameList.TYPE_TCPPASS, node.Passwd);
                             Methods.aio_dial(NameList.TYPE_UDPPASS, node.Passwd);
                             Methods.aio_dial(NameList.TYPE_TCPMETH, node.Method);

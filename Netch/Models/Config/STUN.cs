@@ -6,6 +6,6 @@
         ///     主机名
         /// </summary>
         [Newtonsoft.Json.JsonProperty("host")]
-        public string Host = "stun.qq.com";
+        public string Host = "stun.ekiga.net";
     }
 }

@@ -29,7 +29,7 @@ namespace Netch.Controllers.Other
         {
             Methods.aiodns_dial(NameList.TYPE_REST, "");
             Methods.aiodns_dial(NameList.TYPE_ADDR, ":53");
-            Methods.aiodns_dial(NameList.TYPE_LIST, "bin\\aiodns.conf");
+            Methods.aiodns_dial(NameList.TYPE_LIST, "Bin\\aiodns.conf");
             Methods.aiodns_dial(NameList.TYPE_CDNS, Global.Config.AioDNS.ChinaDNS);
             Methods.aiodns_dial(NameList.TYPE_ODNS, Global.Config.AioDNS.OtherDNS);
 

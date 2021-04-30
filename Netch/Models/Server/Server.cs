@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 
 namespace Netch.Models.Server
 {
@@ -39,6 +40,12 @@ namespace Netch.Models.Server
         /// </summary>
         /// <returns></returns>
         public void TestPing() => this.Ping = Utils.Ping.Fetch(this);
+
+        /// <summary>
+        ///     解析地址
+        /// </summary>
+        /// <returns></returns>
+        public string Resolve() => (Utils.DNS.Fetch(this.Host) != IPAddress.Any) ? Utils.DNS.Fetch(this.Host).ToString() : this.Host;
 
         /// <summary>
         ///     获取备注

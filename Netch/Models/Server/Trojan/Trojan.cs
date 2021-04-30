@@ -31,5 +31,15 @@
         ///     不安全模式（跳过证书验证、跳过主机名验证）
         /// </summary>
         public bool Insecure = true;
+
+        /// <summary>
+        ///     解析链接
+        /// </summary>
+        /// <param name="link">链接</param>
+        /// <returns>是否成功</returns>
+        public bool ParseLink(string link)
+        {
+            return false;
+        }
     }
 }

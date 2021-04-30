@@ -43,6 +43,8 @@ namespace Netch.Tools
                 StartInfo = this.StartInfo,
                 EnableRaisingEvents = true
             };
+            this.instance.StartInfo.RedirectStandardError = true;
+            this.instance.StartInfo.RedirectStandardOutput = true;
 
             this.instance.Exited += this.OnExited;
             this.instance.ErrorDataReceived += this.OnOutputDataReceived;
@@ -152,6 +154,8 @@ namespace Netch.Tools
                     }
                 }
             }
+
+            Console.WriteLine($"[Netch][Tools.Guard] {e.Data}");
         }
     }
 }

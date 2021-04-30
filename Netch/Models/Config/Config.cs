@@ -35,7 +35,13 @@ namespace Netch.Models.Config
         public ShareMode ShareMode = new();
 
         /// <summary>
-        ///     WinTUN 配置
+        ///     TapMode 配置
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("tapmode")]
+        public TapMode TapMode = new();
+
+        /// <summary>
+        ///     TunMode 配置
         /// </summary>
         [Newtonsoft.Json.JsonProperty("tunmode")]
         public TunMode TunMode = new();

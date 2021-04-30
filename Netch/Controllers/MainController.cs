@@ -22,10 +22,13 @@ namespace Netch.Controllers
                     break;
                 case Models.Server.ServerType.Shadowsocks:
                     {
-                        var node = s as Models.Server.Shadowsocks.Shadowsocks;
-                        if (String.IsNullOrEmpty(node.OBFS))
+                        if (m.Type == Models.Mode.ModeType.ProcessMode)
                         {
-                            break;
+                            var node = s as Models.Server.Shadowsocks.Shadowsocks;
+                            if (String.IsNullOrEmpty(node.OBFS))
+                            {
+                                break;
+                            }
                         }
 
                         this.NodeController = new Server.SSController();
@@ -64,6 +67,9 @@ namespace Netch.Controllers
                     break;
                 case Models.Mode.ModeType.ShareMode:
                     this.ModeController = new Mode.ShareController();
+                    break;
+                case Models.Mode.ModeType.TapMode:
+                    this.ModeController = new Mode.TapController();
                     break;
                 case Models.Mode.ModeType.TunMode:
                     this.ModeController = new Mode.TunController();
