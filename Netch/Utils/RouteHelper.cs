@@ -59,46 +59,5 @@ namespace Netch.Utils
         /// <returns></returns>
         [DllImport("RouteHelper.bin", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool DeleteRoute(AddressFamily inet, string address, byte cidr, string gateway, ulong index);
-
-        /// <summary>
-        ///     获取 IP 地址
-        /// </summary>
-        /// <returns></returns>
-        public static IPAddress GetBestAddr()
-        {
-            try
-            {
-                using (var client = new Socket(SocketType.Stream, ProtocolType.Tcp))
-                {
-                    var tk = client.ConnectAsync(new IPEndPoint(IPAddress.Parse("114.114.114.114"), 53));
-                    if (!tk.Wait(1000))
-                    {
-                        return IPAddress.Any;
-                    }
-
-                    return (client.LocalEndPoint as IPEndPoint).Address;
-                }
-            }
-            catch (Exception e)
-            {
-                Global.Logger.Warning(e.ToString());
-
-                return IPAddress.Any;
-            }
-        }
-
-        /// <summary>
-        ///     获取 IP 地址
-        /// </summary>
-        /// <returns></returns>
-        public static IPAddress GetBestGate()
-        {
-            if (Vanara.PInvoke.Win32Error.NO_ERROR != Vanara.PInvoke.IpHlpApi.GetBestRoute(BitConverter.ToUInt32(IPAddress.Parse("114.114.114.114").GetAddressBytes(), 0), 0, out var route))
-            {
-                return IPAddress.Any;
-            }
-
-            return new IPAddress(route.dwForwardNextHop.S_un_b);
-        }
     }
 }

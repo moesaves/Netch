@@ -59,6 +59,8 @@ namespace Netch.Controllers.Mode
             public static extern ulong tun_getDL();
         }
 
+        private Tools.TunTap.Outbound Outbound = new Tools.TunTap.Outbound();
+
         private bool AssignInterface()
         {
             var index = Utils.RouteHelper.ConvertLuidToIndex(Methods.tun_luid());
@@ -109,8 +111,6 @@ namespace Netch.Controllers.Mode
 
         private bool CreateServerRoute(Models.Server.Server s)
         {
-            var index = Utils.RouteHelper.ConvertLuidToIndex(Methods.tun_luid());
-
             var addr = Utils.DNS.Fetch(s.Host);
             if (addr == IPAddress.Any)
             {
@@ -122,30 +122,19 @@ namespace Netch.Controllers.Mode
                 return true;
             }
 
-            var gate = Utils.RouteHelper.GetBestGate();
-            if (gate == IPAddress.Any)
-            {
-                return false;
-            }
-
-            return Utils.RouteHelper.CreateRoute(AddressFamily.InterNetwork, addr.ToString(), 32, gate.ToString(), index);
+            return Utils.RouteHelper.CreateRoute(AddressFamily.InterNetwork, addr.ToString(), 32, this.Outbound.Gateway.ToString(), this.Outbound.Index);
         }
 
         private bool CreateHandleRoute(Models.Mode.TunMode.TunMode mode)
         {
             var index = Utils.RouteHelper.ConvertLuidToIndex(Methods.tun_luid());
-            var gatew = Utils.RouteHelper.GetBestGate();
-            if (gatew == IPAddress.Any)
-            {
-                return false;
-            }
 
             for (int i = 0; i < mode.HandleList.Count; i++)
             {
                 var address = mode.HandleList[i].Split('/')[0];
                 var netmask = byte.Parse(mode.HandleList[i].Split('/')[1]);
 
-                Utils.RouteHelper.CreateRoute(AddressFamily.InterNetwork, address, netmask, gatew.ToString(), index);
+                Utils.RouteHelper.CreateRoute(AddressFamily.InterNetwork, address, netmask, Global.Config.TunMode.Gateway, index);
             }
 
             return true;
@@ -153,12 +142,12 @@ namespace Netch.Controllers.Mode
 
         public bool Create(Models.Server.Server s, Models.Mode.Mode m)
         {
-            var best = Utils.RouteHelper.GetBestAddr();
-            if (best == IPAddress.Any)
+            if (!this.Outbound.Get())
             {
                 return false;
             }
-            Methods.tun_dial(NameList.TYPE_BYPBIND, best.ToString());
+
+            Methods.tun_dial(NameList.TYPE_BYPBIND, this.Outbound.Address.ToString());
 
             var mode = m as Models.Mode.TunMode.TunMode;
             if (mode.BypassList.Count > 0)

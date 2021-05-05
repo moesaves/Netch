@@ -57,6 +57,8 @@ namespace Netch.Tools
             if (!this.Standard)
             {
                 this.Started = true;
+                this.instance.BeginErrorReadLine();
+                this.instance.BeginOutputReadLine();
 
                 return true;
             }
