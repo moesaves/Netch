@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Net;
+using System.Linq;
+using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
 
@@ -59,5 +60,36 @@ namespace Netch.Utils
         /// <returns></returns>
         [DllImport("RouteHelper.bin", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool DeleteRoute(AddressFamily inet, string address, byte cidr, string gateway, ulong index);
+
+        /// <summary>
+        ///     使用名称获取适配器索引
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static ulong GetInterfaceIndexByDescription(string name)
+        {
+            var ada = NetworkInterface.GetAllNetworkInterfaces()
+                .First(nic =>
+                {
+                    if (nic.Description.Equals(name))
+                    {
+                        return true;
+                    }
+
+                    return false;
+                });
+
+            int index = 0;
+            if (ada.Supports(NetworkInterfaceComponent.IPv4))
+            {
+                index = ada.GetIPProperties().GetIPv4Properties().Index;
+            }
+            else if (ada.Supports(NetworkInterfaceComponent.IPv6))
+            {
+                index = ada.GetIPProperties().GetIPv6Properties().Index;
+            }
+
+            return Convert.ToUInt64(index);
+        }
     }
 }
