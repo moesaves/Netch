@@ -13,7 +13,7 @@ namespace Netch.Controllers.Server
         {
             StartInfo = new ProcessStartInfo()
             {
-                FileName = Path.Combine(Application.StartupPath, "Bin\\Shadowsocks.exe"),
+                FileName = Path.Combine(Application.StartupPath, "Bin\\ShadowsocksR.exe"),
                 WorkingDirectory = Path.Combine(Application.StartupPath, "Bin"),
                 CreateNoWindow = true,
                 UseShellExecute = false,
@@ -36,7 +36,7 @@ namespace Netch.Controllers.Server
             var node = s as Models.Server.ShadowsocksR.ShadowsocksR;
 
             var sb = new StringBuilder();
-            sb.Append($"-l {Global.Config.Ports.Socks} -s {node.Resolve()} -p {node.Port} -k '{node.Passwd}' -O {node.Prot} -o {node.OBFS} -t 30 -u");
+            sb.Append($"-l {Global.Config.Ports.Socks} -s {node.Resolve()} -p {node.Port} -k '{node.Passwd}' -O {node.Prot} -o {node.OBFS} -t 30 -u --fast-open --no-delay");
             if (!String.IsNullOrEmpty(node.ProtParam)) sb.Append($" -G '{node.ProtParam}'");
             if (!String.IsNullOrEmpty(node.OBFSParam)) sb.Append($" -g '{node.OBFSParam}'");
 

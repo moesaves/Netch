@@ -23,12 +23,6 @@ namespace Netch.Models.Config
         public string DNS = "aiodns";
 
         /// <summary>
-        ///     DNS
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("adns")]
-        public string AdapterDNS = "127.0.0.1";
-
-        /// <summary>
         ///     绕过 IP 地址
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bypass")]

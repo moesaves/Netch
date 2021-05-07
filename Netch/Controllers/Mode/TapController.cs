@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using System.Management;
 using System.Net;
@@ -86,7 +87,7 @@ namespace Netch.Controllers.Mode
                 var dns = new[] { "127.0.0.1" };
                 if (Global.Config.TunMode.DNS != "aiodns")
                 {
-                    dns[0] = Global.Config.TunMode.AdapterDNS;
+                    dns[0] = Global.Config.TunMode.DNS;
                 }
 
                 using var ord = wmi.GetMethodParameters("SetDNSServerSearchOrder");
@@ -156,11 +157,39 @@ namespace Netch.Controllers.Mode
 
             Methods.tap_dial(NameList.TYPE_DNSADDR, (Global.Config.TunMode.DNS == "aiodns") ? "127.0.0.1" : Global.Config.TunMode.DNS);
             Methods.tap_dial(NameList.TYPE_TCPREST, "");
-            Methods.tap_dial(NameList.TYPE_TCPTYPE, $"Socks");
-            Methods.tap_dial(NameList.TYPE_TCPHOST, $"127.0.0.1:{Global.Config.Ports.Socks}");
             Methods.tap_dial(NameList.TYPE_UDPREST, "");
-            Methods.tap_dial(NameList.TYPE_UDPTYPE, $"Socks");
-            Methods.tap_dial(NameList.TYPE_UDPHOST, $"127.0.0.1:{Global.Config.Ports.Socks}");
+
+            switch (s.Type)
+            {
+                case Models.Server.ServerType.Socks:
+                    {
+                        var node = s as Models.Server.Socks.Socks;
+
+                        Methods.tap_dial(NameList.TYPE_TCPTYPE, "Socks");
+                        Methods.tap_dial(NameList.TYPE_UDPTYPE, "Socks");
+                        Methods.tap_dial(NameList.TYPE_TCPHOST, $"{node.Resolve()}:{node.Port}");
+                        Methods.tap_dial(NameList.TYPE_UDPHOST, $"{node.Resolve()}:{node.Port}");
+
+                        if (!String.IsNullOrEmpty(node.Username))
+                        {
+                            Methods.tap_dial(NameList.TYPE_TCPUSER, node.Username);
+                            Methods.tap_dial(NameList.TYPE_UDPUSER, node.Username);
+                        }
+
+                        if (!String.IsNullOrEmpty(node.Password))
+                        {
+                            Methods.tap_dial(NameList.TYPE_TCPPASS, node.Password);
+                            Methods.tap_dial(NameList.TYPE_UDPPASS, node.Password);
+                        }
+                    }
+                    break;
+                default:
+                    Methods.tap_dial(NameList.TYPE_TCPTYPE, "Socks");
+                    Methods.tap_dial(NameList.TYPE_TCPHOST, $"127.0.0.1:{Global.Config.Ports.Socks}");
+                    Methods.tap_dial(NameList.TYPE_UDPTYPE, "Socks");
+                    Methods.tap_dial(NameList.TYPE_UDPHOST, $"127.0.0.1:{Global.Config.Ports.Socks}");
+                    break;
+            }
 
             if (!Methods.tap_init())
             {
