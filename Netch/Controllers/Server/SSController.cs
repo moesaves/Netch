@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
-using System.Windows.Forms;
 
 namespace Netch.Controllers.Server
 {
@@ -13,8 +12,8 @@ namespace Netch.Controllers.Server
         {
             StartInfo = new ProcessStartInfo()
             {
-                FileName = Path.Combine(Application.StartupPath, "Bin\\Shadowsocks.exe"),
-                WorkingDirectory = Path.Combine(Application.StartupPath, "Bin"),
+                FileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Bin\\Shadowsocks.exe"),
+                WorkingDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Bin"),
                 CreateNoWindow = true,
                 UseShellExecute = false,
                 WindowStyle = ProcessWindowStyle.Hidden

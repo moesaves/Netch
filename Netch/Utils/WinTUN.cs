@@ -1,13 +1,12 @@
 ﻿using System;
 using System.IO;
-using System.Windows.Forms;
 
 namespace Netch.Utils
 {
     public static class WinTUN
     {
         public static string oPath = Path.Combine(Environment.SystemDirectory, "wintun.dll");
-        public static string nPath = Path.Combine(Application.StartupPath, "Bin\\WinTUN.bin");
+        public static string nPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Bin\\wintun.bin");
 
         /// <summary>
         ///     注册 WinTUN 驱动

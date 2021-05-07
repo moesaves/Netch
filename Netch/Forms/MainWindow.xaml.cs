@@ -1,10 +1,10 @@
-﻿using System.Windows.Forms;
+﻿using System.Windows;
 
 namespace Netch.Forms
 {
-    public partial class MainForm : Form
+    public partial class MainWindow : Window
     {
-        public MainForm()
+        public MainWindow()
         {
             InitializeComponent();
         }

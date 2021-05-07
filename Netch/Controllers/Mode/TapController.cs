@@ -60,7 +60,8 @@ namespace Netch.Controllers.Mode
             public static extern ulong tap_getDL();
         }
 
-        private Tools.TunTap.Outbound Outbound = new Tools.TunTap.Outbound();
+        private Tools.TunTap.Outbound Outbound = new();
+        private Interface.IController DNSController;
 
         private bool AssignInterface()
         {
@@ -196,6 +197,12 @@ namespace Netch.Controllers.Mode
                 return false;
             }
 
+            this.DNSController = new Other.DNS.AioDNSController();
+            if (!this.DNSController.Create(s, m))
+            {
+                return false;
+            }
+
             if (!this.AssignInterface())
             {
                 return false;
@@ -220,6 +227,8 @@ namespace Netch.Controllers.Mode
 
         public bool Delete()
         {
+            this.DNSController?.Delete();
+
             return Methods.tap_free();
         }
     }

@@ -3,10 +3,8 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
-    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
     <Platforms>x64</Platforms>
-    <PackageProjectUrl>https://github.com/NetchX/Netch</PackageProjectUrl>
-    <ApplicationManifest>App.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>

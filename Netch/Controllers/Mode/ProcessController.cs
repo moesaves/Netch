@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using System.Windows.Forms;
 
 namespace Netch.Controllers.Mode
 {
@@ -63,7 +62,7 @@ namespace Netch.Controllers.Mode
             Methods.aio_dial(NameList.TYPE_FILTERUDP, mode.UDP ? "true" : "false");
 
             Methods.aio_dial(NameList.TYPE_CLRNAME, "");
-            Methods.aio_dial(NameList.TYPE_BYPNAME, Application.StartupPath.Replace("\\", "\\\\"));
+            Methods.aio_dial(NameList.TYPE_BYPNAME, AppDomain.CurrentDomain.BaseDirectory.Replace("\\", "\\\\"));
             for (int i = 0; i < mode.HandleList.Count; i++) if (!Methods.aio_dial(NameList.TYPE_ADDNAME, mode.HandleList[i])) return false;
             for (int i = 0; i < mode.BypassList.Count; i++) if (!Methods.aio_dial(NameList.TYPE_BYPNAME, mode.BypassList[i])) return false;
 

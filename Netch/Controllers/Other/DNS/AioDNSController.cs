@@ -1,8 +1,8 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Netch.Controllers.Other
+namespace Netch.Controllers.Other.DNS
 {
-    public class DNSController : Interface.IController
+    public class AioDNSController : Interface.IController
     {
         private enum NameList : int
         {
