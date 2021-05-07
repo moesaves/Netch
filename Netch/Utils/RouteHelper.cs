@@ -62,6 +62,43 @@ namespace Netch.Utils
         public static extern bool DeleteRoute(AddressFamily inet, string address, byte cidr, string gateway, ulong index);
 
         /// <summary>
+        ///     使用索引获取适配器
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public static NetworkInterface GetInterfaceByIndex(ulong index)
+        {
+            NetworkInterface adapter = null;
+
+            var list = NetworkInterface.GetAllNetworkInterfaces();
+            for (int i = 0; i < list.Length; i++)
+            {
+                if (list[i].Supports(NetworkInterfaceComponent.IPv4))
+                {
+                    if (list[i].GetIPProperties().GetIPv4Properties().Index == Convert.ToInt32(index))
+                    {
+                        adapter = list[i];
+                        break;
+                    }
+                }
+                else if (list[i].Supports(NetworkInterfaceComponent.IPv6))
+                {
+                    if (list[i].GetIPProperties().GetIPv6Properties().Index == Convert.ToInt32(index))
+                    {
+                        adapter = list[i];
+                        break;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+            }
+
+            return adapter;
+        }
+
+        /// <summary>
         ///     使用名称获取适配器索引
         /// </summary>
         /// <param name="name"></param>

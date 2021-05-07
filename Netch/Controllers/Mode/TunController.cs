@@ -72,18 +72,7 @@ namespace Netch.Controllers.Mode
                 return false;
             }
 
-            NetworkInterface adapter = null;
-
-            var list = NetworkInterface.GetAllNetworkInterfaces();
-            for (int i = 0; i < list.Length; i++)
-            {
-                if (list[i].GetIPProperties().GetIPv4Properties().Index == (int)index)
-                {
-                    adapter = list[i];
-                    break;
-                }
-            }
-
+            NetworkInterface adapter = Utils.RouteHelper.GetInterfaceByIndex(index);
             if (adapter == null)
             {
                 return false;
